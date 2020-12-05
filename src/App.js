@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Validation from './Validation/Validation';
+import Char from './Char/Char';
 import './App.css';
 
 const App = () => {
@@ -13,6 +14,14 @@ const App = () => {
     });
   }
   
+  const charsList = userInput.inputText.split('').map(el => {
+    return (
+      <Char
+        character={el}
+      />
+    );
+  })
+  
   return (
     <div className="App">
       <input
@@ -21,6 +30,7 @@ const App = () => {
         onChange={changeUserInput} />
       <p>{userInput.inputText.length}</p>
       <Validation inputLenght={userInput.inputText.length} />
+      {charsList}
     </div>
   );
 }
