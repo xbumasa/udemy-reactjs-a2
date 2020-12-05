@@ -14,10 +14,20 @@ const App = () => {
     });
   }
   
-  const charsList = userInput.inputText.split('').map(el => {
+  const deleteChar = (index) => {
+    const chars = userInput.inputText.split('');
+    chars.splice(index, 1);
+    setUserInputState({
+      inputText: chars.join('')
+    });
+  }
+  
+  const charsList = userInput.inputText.split('').map((el, index) => {
     return (
       <Char
+        key={index}
         character={el}
+        clicked={deleteChar.bind(this, index)}
       />
     );
   })
