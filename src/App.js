@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Validation from './Validation/Validation';
 import './App.css';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         value={userInput.inputText}
         onChange={changeUserInput} />
       <p>{userInput.inputText.length}</p>
+      <Validation inputLenght={userInput.inputText.length} />
     </div>
   );
 }
